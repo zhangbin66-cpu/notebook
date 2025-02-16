@@ -1,0 +1,13 @@
+{
+  "name": "image-compressor",
+  "version": "1.0.0",
+  "description": "图片压缩和传输工具",
+  "main": "server.js",
+  "dependencies": {
+    "ws": "^8.2.3",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+} 
