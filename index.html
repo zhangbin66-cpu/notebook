@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy 笔记本</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 添加图标字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+</head>
+<body>
+    <!-- 添加顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <i class="ri-edit-line brand-icon"></i>
+            Easy 笔记本
+        </div>
+        <div class="nav-user">
+            <span id="userInfo"></span>
+            <button id="logoutBtn" class="logout-button">
+                <i class="ri-logout-box-line"></i>
+                退出登录
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 左侧笔记列表 -->
+        <aside class="notes-list">
+            <div class="list-header">
+                <h2>我的笔记</h2>
+                <button id="newNoteBtn" class="primary-button">
+                    <i class="ri-add-line"></i>
+                    新建笔记
+                </button>
+            </div>
+            <div id="notesList" class="list-content">
+                <!-- 笔记列表将通过 JavaScript 动态加载 -->
+            </div>
+        </aside>
+
+        <!-- 右侧编辑区 -->
+        <main class="note-editor">
+            <input type="text" id="noteTitle" placeholder="输入笔记标题..." class="title-input">
+            <textarea id="noteContent" placeholder="开始写笔记..." class="content-input"></textarea>
+            <div class="editor-actions">
+                <button id="saveNoteBtn" class="primary-button">
+                    <i class="ri-save-line"></i>
+                    保存笔记
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
