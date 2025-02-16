@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS notes_app;
+USE notes_app;
+
+-- 创建笔记分类表
+CREATE TABLE note_categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    description VARCHAR(200),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 创建笔记表
+CREATE TABLE IF NOT EXISTS notes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    category_id INT,
+    title VARCHAR(200) NOT NULL,
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES note_categories(id)
+);
+
+-- 创建用户表
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 修改笔记表，添加用户ID外键
+ALTER TABLE notes ADD COLUMN user_id INT;
+ALTER TABLE notes ADD FOREIGN KEY (user_id) REFERENCES users(id); 
